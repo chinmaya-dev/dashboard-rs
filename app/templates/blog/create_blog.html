@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container m-top">
+    <div class="p-4 shadow my-2">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ legend }}</legend>
+                <!--Repeat this code block for additional item you want to show  -->
+                <div class="form-group">
+                    {{ form.city.label(class="form-control-label") }}
+                    {% if form.city.errors %}
+                    {{ form.city(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.city.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.city(class="form-control", id="googleplaces") }}
+                    {% endif %}
+                </div>
+                <!--Insert here your items in div element for all the data you need  -->
+
+                <!--Repeat this code block for additional item you want to show  -->
+                <div class="form-group">
+                    {{ form.category.label(class="form-control-label") }}
+                    {% if form.category.errors %}
+                    {{ form.category(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.category.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.category(class="form-control") }}
+                    {% endif %}
+                </div>
+                <!--Insert here your items in div element for all the data you need  -->
+
+                <!--Repeat this code block for additional item you want to show  -->
+                <div class="form-group">
+                    {{ form.title.label(class="form-control-label") }}
+                    {% if form.title.errors %}
+                    {{ form.title(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.title.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.title(class="form-control") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.summary.label(class="form-control-label") }}
+                    {% if form.summary.errors %}
+                    {{ form.summary(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.summary.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.summary(class="form-control") }}
+                    {% endif %}
+                </div>
+
+                <div class="form-group">
+                    {{ form.story.label(class="form-control-label") }}
+                    {% if form.story.errors %}
+                    {{ form.story(class="form-control is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.story.errors %}
+                        <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.story(class="form-control") }}
+                    {% endif %}
+                </div>
+                <!--Insert here your items in div element for all the data you need  -->
+                <!--Repeat this code block for additional item you want to show  -->
+            <div class="form-group">
+                {{ form.picture.label(class="form-control-label pt-1", style="font-size:20px;") }}
+                {{ form.picture(class="form-control-file", style="font-size:20px;") }}
+            
+                {% if form.picture.errors %}
+                {% for error in form.picture.errors %}
+                <span class="text-danger">{{ error }}</span><br>
+                {% endfor %}
+                {% endif %}
+            </div>
+                <!--Insert here your items in div element for all the data you need  -->
+
+
+                <!--PLACEHOLDERS to add more data fields      -->
+
+
+
+
+
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+    <script>
+        function activatePlacesSearch() {
+            var input = document.getElementById('googleplaces');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+        }
+    </script>
+    
+    <script type="text/javascript"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZZjkOg4_d2Fw6BBN6UeDDqkh-PqgSzDU&libraries=places&callback=activatePlacesSearch"></script>
+</div>
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<h1>{{ ('Messages') }}</h1>
+   {% for message in messages %}
+   <article class="media content-section">
+    <p><b class="text-muted" style="margin-right: 0.5em;">{{ message.author.username }}</b>{{message.body}}<br>
+      <small style=" position: relative; " class="text-muted"> {{ moment(message.timestamp).fromNow() }}</small>
+    <a class="nav-item nav-link" title="send message" href="{{ url_for('messages.send_message', id=message.author.id) }}">reply</a></p>
+    </article>
+    {% endfor %}
+
+    <button data-toggle="collapse" class="btn btn-link" data-target="#demo">sent messages</button>
+      <div id="demo" class="collapse">
+      {% for own in owns %}
+      <article class="media content-section">
+        <p><b class="text-muted" style="margin-right: 0.5em;"> to  {{ own.recipient.username }}</b>{{own.body}}<br>
+          <small style=" position: relative; " class="text-muted"> {{ moment(own.timestamp).fromNow() }}</small>
+        </p>
+      </article>
+      {% endfor %}
+      </div>
+      <nav aria-label="...">
+       <ul class="pager">
+           <li class="previous{% if not prev_url %} disabled{% endif %}">
+               <a href="{{ prev_url or '#' }}">
+                   <span aria-hidden="true">&larr;</span> {{('Newer messages') }}
+               </a>
+           </li>
+           <li class="next{% if not next_url %} disabled{% endif %}">
+               <a href="{{ next_url or '#' }}">
+                   {{('Older messages') }} <span aria-hidden="true">&rarr;</span>
+               </a>
+           </li>
+       </ul>
+   </nav>
+
+
+{% endblock content %}

@@ -1,0 +1,479 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+
+body{
+font-family: 'Open Sans', sans-serif;
+background:#FAF7F7;
+color:black;
+text-align:center;
+}
+
+h1{
+font-family: 'arial';
+font-size:60px;
+position:top; top:100; bottom:0; left:0; right:0;
+margin:; height:20px; width:100%;
+
+-webkit-animation: floating-text 2s ease alternate infinite;
+-moz-animation: floating-text 2s ease alternate infinite;
+-ms-animation: floating-text 2s ease alternate infinite;
+-o-animation: floating-text 2s ease alternate infinite;
+   animation: floating-text 2s ease alternate infinite;
+}
+
+
+
+a{
+text-decoration:none;
+color:#fff;
+}
+
+@-webkit-keyframes floating-text {
+0% {
+-webkit-transform: translateY(.1em);
+text-shadow:0 0 .5em rgba(255,255,255,.4),
+0 0 .2em rgba(0,0,0,.3),
+0 .3em .2em rgba(0,0,0,.3);
+
+}
+100% {
+text-shadow:0 0 .5em rgba(255,255,255,.4),
+0 0 .2em rgba(0,0,0,.3),
+0 .5em .5em rgba(0,0,0,.3);
+}
+}
+@-moz-keyframes floating-text {
+0% {
+-moz-transform: translateY(.1em);
+text-shadow:0 0 .5em rgba(255,255,255,.4),
+0 0 .2em rgba(0,0,0,.3),
+0 .3em .2em rgba(0,0,0,.3);
+
+}
+100% {
+text-shadow:0 0 .5em rgba(255,255,255,.4),
+0 0 .2em rgba(0,0,0,.3),
+0 .5em .5em rgba(0,0,0,.3);
+}
+}
+@-ms-keyframes floating-text {
+0% {
+-ms-transform: translateY(.1em);
+text-shadow:0 0 .5em rgba(255,255,255,.4),
+0 0 .2em rgba(0,0,0,.3),
+0 .3em .2em rgba(0,0,0,.3);
+
+}
+100% {
+text-shadow:0 0 .5em rgba(255,255,255,.4),
+0 0 .2em rgba(0,0,0,.3),
+0 .5em .5em rgba(0,0,0,.3);
+}
+}
+@-o-keyframes floating-text {
+0% {
+-o-transform: translateY(.1em);
+text-shadow:0 0 .5em rgba(255,255,255,.4),
+0 0 .2em rgba(0,0,0,.3),
+0 .3em .2em rgba(0,0,0,.3);
+
+}
+100% {
+text-shadow:0 0 .5em rgba(255,255,255,.4),
+0 0 .2em rgba(0,0,0,.3),
+0 .5em .5em rgba(0,0,0,.3);
+}
+}
+@keyframes floating-text {
+0% {
+transform: translateY(.1em);
+text-shadow:0 0 .5em rgba(255,255,255,.4),
+0 0 .2em rgba(0,0,0,.3),
+0 .3em .2em rgba(0,0,0,.3);
+
+}
+100% {
+text-shadow:0 0 .5em rgba(255,255,255,.4),
+0 0 .2em rgba(0,0,0,.3),
+0 .5em .5em rgba(0,0,0,.3);
+}
+}
+
+.node {
+cursor: pointer;
+}
+
+.node circle {
+fill: ##FFF;
+stroke: steelblue;
+stroke-width: 4px;
+}
+
+.node text {
+font: 15px Calibri;
+
+}
+
+.link {
+fill: none;
+stroke: #312F2E;
+stroke-width: 1px;
+}
+
+</style>
+
+
+
+<!-- load the d3.js library -->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+
+<h1>An overview on protagonist's </h1>
+
+
+<<div class="article-section">
+
+</div>
+
+
+<script>
+
+var treeData = [
+{
+"name": "Protagonist",
+"parent": "null",
+"children": [
+{
+"name": "category",
+"parent": "Protagonist",
+"children": [
+ {
+   "name": "music",
+   "parent": "category",
+   "children": [
+     {
+       "name": "Amrut Bhat",
+       "parent": "music"
+     },
+     {
+       "name": "Martian pizaa	",
+       "parent": "music"
+     },
+     {
+       "name": "Shraddha Mohanti",
+       "parent": "music"
+     },
+     {
+       "name": "Banat and Shrikant",
+       "parent": "music"
+     },
+     {
+       "name": "Aditi Ramesh",
+       "parent": "music"
+     },
+     {
+       "name": "Gladson Peter",
+       "parent": "music"
+     },
+     {
+       "name": "Bryan Ernest",
+       "parent": "music"
+     },
+     {
+       "name": "Teen Angels",
+       "parent": "music"
+     },
+     {
+       "name": "Aarifah Rebello",
+       "parent": "music"
+     },
+     {
+       "name": "Purnet Moirangthem",
+       "parent": "music"
+     },
+
+
+   ]
+
+
+
+
+ },
+ {
+   "name": "public corner",
+   "parent": "category",
+   "children": [
+     {
+       "name": "Malaika Vaz",
+       "parent": "public corner"
+     },
+     {
+       "name": "Swapnil Patil",
+       "parent": "public corner"
+     },
+     {
+       "name": "Apurva Kothari",
+       "parent": "public corner"
+     },
+     {
+       "name": "Ami B Shroff",
+       "parent": "public corner"
+     },
+     {
+       "name": "Neha Parulkar",
+       "parent": "public corner"
+     },
+     {
+       "name": "Shankar Venkatraman",
+       "parent": "public corner"
+     },
+   ]
+ },
+ {
+   "name": "travel",
+   "parent": "category",
+   "children": [
+     {
+       "name": "Ansoo Gupta",
+       "parent": "travel"
+     },
+     {
+       "name": "Akash and Laxmi",
+       "parent": "travel"
+     },
+     {
+       "name": "Dhruv Dholakia",
+       "parent": "travel"
+     },
+     {
+       "name": "Vahishta Mistry",
+       "parent": "travel"
+     },
+     {
+       "name": "Soraya and Fabia",
+       "parent": "travel"
+     }
+
+   ]
+ },
+ {
+   "name": "design",
+   "parent": "category",
+   "children": [
+
+     {
+       "name": "Sooraj Bhalla",
+       "parent": "design"
+     }
+
+   ]
+ },
+ {
+   "name": "sports",
+   "parent": "category",
+   "children": [
+
+     {
+       "name": "Priya Sharma",
+       "parent": "sports"
+     },
+     {
+       "name": "Anu Chohan",
+       "parent": "sports"
+     },
+     {
+       "name": "Chaitanya Gavali",
+       "parent": "sports"
+     },
+     {
+       "name": "Jaydeep Kadam",
+       "parent": "sports"
+     },
+     {
+       "name": "Amarjeet Singh Chawla",
+       "parent": "sports"
+     },
+     {
+       "name": "Devesh Khatu",
+       "parent": "sports"
+     },
+     {
+       "name": "Gulafsha Ansari",
+       "parent": "sports"
+     },
+     {
+       "name": "Pooja Gautam",
+       "parent": "sports"
+     },
+     {
+       "name": "Mushtaq Haji",
+       "parent": "sports"
+     },
+     {
+       "name": "Vibhas Sen",
+       "parent": "sports"
+     },
+     {
+       "name": "Shams Aalam",
+       "parent": "sports"
+     },
+     {
+       "name": "Adil Ansari",
+       "parent": "sports"
+     },
+     {
+       "name": "Vandita Rawal",
+       "parent": "sports"
+     },
+     {
+       "name": "Amandeep Singh",
+       "parent": "sports"
+     }
+   ]
+ }
+
+
+]
+},
+
+]
+}
+];
+
+
+// ************** Generate the tree diagram	 *****************
+var margin = {top: 100, right: 120, bottom: 100, left: 120},
+width = 800- margin.right - margin.left,
+height =800 - margin.top - margin.bottom;
+
+var i = 0,
+duration = 750,
+root;
+
+var tree = d3.layout.tree()
+.size([height, width]);
+
+var diagonal = d3.svg.diagonal()
+.projection(function(d) { return [d.y, d.x]; });
+
+var svg = d3.select("body").append("svg")
+.attr("width", width + margin.right + margin.left)
+.attr("height", height + margin.top + margin.bottom)
+.append("g")
+.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+root = treeData[0];
+root.x0 = height / 2;
+root.y0 = 0;
+
+update(root);
+
+d3.select(self.frameElement).style("height", "1080px");
+
+function update(source) {
+
+// Compute the new tree layout.
+var nodes = tree.nodes(root).reverse(),
+links = tree.links(nodes);
+
+// Normalize for fixed-depth.
+nodes.forEach(function(d) { d.y = d.depth * 180; });
+
+// Update the nodes…
+var node = svg.selectAll("g.node")
+.data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+// Enter any new nodes at the parent's previous position.
+var nodeEnter = node.enter().append("g")
+.attr("class", "node")
+.attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
+.on("click", click);
+
+nodeEnter.append("circle")
+.attr("r", 1e-6)
+.style("fill", function(d) { return d._children ? "Cerulean" : "#fff"; });
+
+nodeEnter.append("text")
+.attr("x", function(d) { return d.children || d._children ? -13 : 13; })
+.attr("dy", ".35em")
+.attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+.text(function(d) { return d.name; })
+.style("fill-opacity", 1e-6);
+
+// Transition nodes to their new position.
+var nodeUpdate = node.transition()
+.duration(duration)
+.attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+nodeUpdate.select("circle")
+.attr("r", 10)
+.style("fill", function(d) { return d._children ? "Cerulean" : "#fff"; });
+
+nodeUpdate.select("text")
+.style("fill-opacity", 1);
+
+// Transition exiting nodes to the parent's new position.
+var nodeExit = node.exit().transition()
+.duration(duration)
+.attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+.remove();
+
+nodeExit.select("circle")
+.attr("r", 1e-6);
+
+nodeExit.select("text")
+.style("fill-opacity", 1e-6);
+
+// Update the links…
+var link = svg.selectAll("path.link")
+.data(links, function(d) { return d.target.id; });
+
+// Enter any new links at the parent's previous position.
+link.enter().insert("path", "g")
+.attr("class", "link")
+.attr("d", function(d) {
+var o = {x: source.x0, y: source.y0};
+return diagonal({source: o, target: o});
+});
+
+// Transition links to their new position.
+link.transition()
+.duration(duration)
+.attr("d", diagonal);
+
+// Transition exiting nodes to the parent's new position.
+link.exit().transition()
+.duration(duration)
+.attr("d", function(d) {
+var o = {x: source.x, y: source.y};
+return diagonal({source: o, target: o});
+})
+.remove();
+
+// Stash the old positions for transition.
+nodes.forEach(function(d) {
+d.x0 = d.x;
+d.y0 = d.y;
+});
+}
+
+// Toggle children on click.
+function click(d) {
+if (d.children) {
+d._children = d.children;
+d.children = null;
+} else {
+d.children = d._children;
+d._children = null;
+}
+update(d);
+}
+
+</script>
+</div>
+
+
+
+{% endblock content %}

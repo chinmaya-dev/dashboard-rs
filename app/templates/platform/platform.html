@@ -1,0 +1,297 @@
+{% extends "layout.html" %}
+<head>
+        {% block head %}
+        <meta property="og:title" content="{{ platform.title }}">
+        <meta property="og:description" content="{{ platform.summary }}">
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="{{ url_for('static', filename='platform_pics/' + platform.image_file) }}">
+        <meta name="twitter:card" content="{{ url_for('static', filename='platform_pics/' + platform.image_file) }}">
+        <meta name="twitter:title" content="{{ platform.title }}">
+        <meta name="twitter:description" content="{{ platform.summary }}">
+        
+        {{ super() }}
+        {% endblock head %}
+        </head>
+{% block content %}
+
+<style>
+    p {
+        color: black;
+        max-width: 740px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h3 {
+        color: black;
+        white-space: normal;
+    }
+    ul{
+        text-align:justify;
+        padding:0;
+        margin:0;
+    }
+    .padding-0 {
+        padding-right: 0;
+        padding-left: 0;
+    }
+ 
+.icon-bar {
+    position: fixed;
+        top: 25%;
+        left: 10%;
+        list-style: none;
+        padding-left: 0;
+        z-index: 10;
+        margin: 0;
+        -webkit-transition: right 0.25s ease-in-out;
+        transition: right 0.25s ease-in-out;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+  }
+  
+  .icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+  }
+  
+  .icon-bar a:hover {
+    -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+  
+  .facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  
+  .google {
+    background: #dd4b39;
+    color: white;
+  }
+  
+  .linkedin {
+    background: #007bb5;
+    color: white;
+  }
+  
+  .youtube {
+    background: #bb0000;
+    color: white;
+  }
+  
+  .content {
+    margin-left: 75px;
+    font-size: 30px;
+  }
+  .mobileview {
+        display: none;
+    }
+
+    .mobileviewdisplay {
+        display: block;
+    }
+   
+    @media (max-width: 994px){
+        h1 {
+        font-size: 2.8em;
+        line-height: 28px;
+        white-space:normal;
+        font-weight:normal;
+       }
+       #socialbar{
+           display:none;
+       }
+    }
+   
+
+    /* .backgroundOverlay::before{
+    -webkit-filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#002c8a', endColorstr='#000d72ff',GradientType=1 );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#002c8a', endColorstr='#000d72ff',GradientType=1 );
+} */
+</style>
+
+<div class="header-title white ken-burn-center img-box adv-img adv-img-classic-box" data-parallax="scroll"
+    data-position="top" data-natural-height="950" data-natural-width="1920"
+    data-image-src="{{ url_for('static', filename='platform_pics/' + platform.image_file) }}" style=" ">
+    <div class="caption">
+            <div class="caption-inner">
+                <h1>{{ platform.title }}</h1>
+                <br>
+                <p class="big-text">{{ platform.summary }} </p>
+            </div>
+        </div>
+</div>
+
+
+<div class="section-empty">
+        <div id="socialbar" class="icon-bar" style="display:none;">
+                <a target="_blank" href="#" data-social="share-facebook" data-toggle="tooltip"
+                                data-placement="top" title="Facebook">
+                                <i class="fa fa-facebook text-s circle"></i>
+                            </a>
+                            <a target="_blank" href="#" data-social="share-twitter" data-toggle="tooltip"
+                                data-placement="top" title="Twitter">
+                                <i class="fa fa-twitter text-s circle"></i>
+                            </a>
+                            <a target="_blank" href="#" data-social="share-google" data-toggle="tooltip"
+                                data-placement="top" title="Google+">
+                                <i class="fa fa-google-plus text-s circle"></i>
+                            </a>
+                            <a target="_blank" href="#" data-social="share-linkedin" data-toggle="tooltip"
+                                data-placement="top" title="LinkedIn">
+                                <i class="fa fa-linkedin text-s circle"></i>
+                            </a>
+              </div>
+    <div class="container content" style="padding-top: 50px;max-width: 800px;margin-left: auto;margin-right: auto;">
+        <div class="row vertical-row">
+              
+            <div class="col-md-12 col-sm-12">
+                    <div id="iconMobile" class="mobileview">
+
+                       
+                            <div class="btn-group social-group btn-group-icons">
+                                <a target="_blank" href="#" data-social="share-facebook" data-toggle="tooltip"
+                                    data-placement="top" title="Facebook">
+                                    <i class="fa fa-facebook text-s circle"></i>
+                                </a>
+                                <a target="_blank" href="#" data-social="share-twitter" data-toggle="tooltip"
+                                    data-placement="top" title="Twitter">
+                                    <i class="fa fa-twitter text-s circle"></i>
+                                </a>
+                                <a target="_blank" href="#" data-social="share-google" data-toggle="tooltip"
+                                    data-placement="top" title="Google+">
+                                    <i class="fa fa-google-plus text-s circle"></i>
+                                </a>
+                                <a target="_blank" href="#" data-social="share-linkedin" data-toggle="tooltip"
+                                    data-placement="top" title="LinkedIn">
+                                    <i class="fa fa-linkedin text-s circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                {% if platform.Protagonist == current_user%}
+                <span>
+                    <form action="{{ url_for('platform.delete_platform', platform_id=platform.id) }}" method="POST">
+                        <input class="btn btn-info" type="submit" value="Delete">
+                    </form>
+                </span>
+                {% endif %}
+                <br>
+                {% if platform.Protagonist == current_user%}
+                <div class="tag-row">
+                    <span class="col-xs-12 col-lg-2  padding-0" style="font-size:0.4em;"><i class="fa fa-calendar"></i> <a
+                            href="#">{{ moment(platform.timestamp).format('Do MMMM YYYY') }}</a></span>
+                    <span class="col-xs-12 col-lg-2  padding-0" style="font-size:0.4em;"><i class="fa fa-bookmark"></i> <a
+                            href="#">{{ platform.category }}</a></span>
+                    <span class="col-xs-12 col-lg-3  padding-0" style="font-size:0.4em;"><i class="fa fa-pencil ml-2"></i><a
+                            href="#">{{ platform.Protagonist.username }}</a></span>
+                    <span class="col-xs-12 col-lg-3  padding-0" style="font-size:0.4em;"><i class="fa fa-map-marker"></i><a
+                            href="http://maps.google.com/?q={{platform.city }}">{{ platform.city }}</a></span>
+                    {% if platform.Protagonist == current_user%}
+                    <span class="col-xs-12 col-lg-1  padding-0" style="border-right:none !important;font-size:0.4em;"><i
+                            class="fa fa-edit"></i><a
+                            href="{{ url_for('platform.update_platform', platform_id=platform.id) }}">Edit</a></span>
+                    {% endif %}
+
+
+                </div>
+                {% endif %}
+                <br>
+                <br>
+                <p style="color:#0e1a35 !important;">
+                    {{platform.description|safe}}
+                </p>
+                <div class="section-empty section-doc">
+                    <div class="container content">
+                
+                        <div style="background:#eeeeee;border:1px solid #cccccc;padding:5px 10px;  font-size: 12px !important;">*Use Cases and Community features are
+                            coming Soon! Please stay tuned for more future updates.&nbsp;</div>
+                
+                    </div>
+                </div>
+                <hr class="space m" />
+                <div class="row">
+                   
+                    <div class="col-md-6">
+
+                        <hr class="space m" />
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section-empty"></div>
+
+</div>
+<i class="scroll-top scroll-top-mobile show fa fa-sort-asc"></i>
+<script src="{{ url_for('static', filename='HTWF/scripts/parallax.min.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='HTWF/scripts/font-awesome/css/font-awesome.css') }}">
+<script async src="{{ url_for('static', filename='HTWF/scripts/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/imagesloaded.min.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/flexslider/jquery.flexslider-min.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/jquery.tab-accordion.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/bootstrap/js/bootstrap.popover.min.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/smooth.scroll.min.js') }}"></script>
+<script>
+        var alterClass = function () {
+            var ww = document.body.clientWidth;
+            if (ww < 780) {
+                $('#iconMobile').removeClass('mobileview');
+                $('#iconMobile').addClass('mobileviewdisplay');
+    
+            } else if (ww >= 781) {
+    
+                $('#iconMobile').addClass('mobileview');
+                $('#iconMobile').removeClass('mobileviewdisplay');
+    
+    
+            };
+        };
+        $(window).resize(function () {
+            alterClass();
+        });
+        //Fire it when the page first loads:
+        alterClass();
+        $(document).scroll(function () {
+            if ($(window).width() > 950) {
+            var a = $(document).scrollTop() + window.innerHeight;
+            var y = $(this).scrollTop();
+            var b = $('#footer').offset().top;
+            if ((y > 500) && (a < b)) {
+                $('.icon-bar').fadeIn();
+                $('#socialbar').css('bottom', '10px');
+            } else {
+                $('.icon-bar').fadeOut();
+                $('#socialbar').css('bottom', (10 + (a - b)) + 'px');
+            }
+                // var footerpos = $('#footer').offset().top;
+                // var y = $(this).scrollTop();
+                // var x = $(this).scroll();
+                // if ((y > 500) && (x < footerpos)) {
+                //     $('.icon-bar').fadeIn();
+                // } else {
+                //     $('.icon-bar').fadeOut();
+                // }
+            }
+        });
+    </script>
+{% endblock content %}

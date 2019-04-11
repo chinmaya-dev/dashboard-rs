@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+<head>
+  {% block head %}
+  <meta property="og:image" content="{{ url_for('static', filename='images/wall.png') }}">
+  <meta name="twitter:card" content="{{ url_for('static', filename='images/wall.png') }}">
+
+  {{ super() }}
+  {% endblock head %}
+</head>
+{% block content %}
+
+
+
+<div class="header-title" style="background-image:url('{{ url_for('static', filename='images/bg-img-3.png') }}')">
+  <div class="container">
+    <div class="title-base">
+      <hr class="anima" />
+      <h1>Quantamix blogs</h1>
+      <p>Latest news from our blog and our social channels</p>
+    </div>
+  </div>
+</div>
+
+<div class="section-empty section-item">
+  <div class="container content">
+    <div class="row">
+      <div class="col-md-8 col-center col-sm-12">
+        <div class="grid-list one-row-list">
+          <div class="grid-box row">
+            {% for blog in blogs.items %}
+            <div class="grid-item col-md-12">
+              <div class="advs-box niche-box-blog">
+                <div class="block-top">
+                  <div class="block-infos">
+                    <div class="block-data">
+                      <p class="bd-day">{{ moment(blog.timestamp).format('DD') }}</p>
+                      <p class="bd-month">{{ moment(blog.timestamp).format('MMM') }}</p>
+                    </div>
+                    <a class="block-comment" href="#">2 <i class="fa fa-comment-o"></i></a>
+                  </div>
+                  <div class="block-title">
+                    <h3><a href="{{ url_for('blog.blogn', blog_id=blog.id) }}">{{blog.title }}</a></h3>
+                    <div class="tag-row">
+                      <span><i class="fa fa-bookmark"></i> <a href="#">{{blog.category }}</a></span>
+                      <span><i class="fa fa-pencil"></i><a>{{blog.blog_author.username }}</a></span>
+                      <span><i class="fa fa-map-marker"></i><a href="http://maps.google.com/?q={{blog.city }}">{{blog.city }}</a></span>
+                    </div>
+                  </div>
+                </div>
+                <a class="img-box" href="{{ url_for('blog.blogn', blog_id=blog.id) }}">
+                  <img src="{{ url_for('static', filename='blog_pics/' + blog.image_file) }}"
+                    alt="">
+                </a>
+                <p class="excerpt" >
+                  {{blog.summary }}
+                </p>
+              </div>
+              <hr class="space m" />
+            </div>
+            {% endfor %}
+          </div>
+          <!-- <div class="list-nav">
+            <ul class="pagination pagination-grid hide-first-last pagination-sm" data-page-items="3"
+              data-pagination-anima="show-scale" data-options="scrollTop:true"></ul>
+          </div> -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<link rel="stylesheet" href="{{ url_for('static', filename='HTWF/scripts/font-awesome/css/font-awesome.css') }}">
+<script async src="{{ url_for('static', filename='HTWF/scripts/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/imagesloaded.min.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/jquery.twbsPagination.min.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/parallax.min.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/smooth.scroll.min.js') }}"></script>
+{% endblock content %}

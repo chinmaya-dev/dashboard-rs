@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+
+
+
+            <!--Repeat this code block for additional item you want to show  -->
+            <div class="form-group">
+                {{ form.facebook_id.label(class="form-control-label") }}
+                {% if form.facebook_id.errors %}
+                    {{ form.facebook_id(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.facebook_id.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.facebook_id(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <!--Insert here your items in div element for all the data you need  -->
+
+            <!--Repeat this code block for additional item you want to show  -->
+            <div class="form-group">
+                {{ form.twitter_id.label(class="form-control-label") }}
+                {% if form.twitter_id.errors %}
+                    {{ form.twitter_id(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.twitter_id.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.twitter_id(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <!--Insert here your items in div element for all the data you need  -->
+
+            <!--Repeat this code block for additional item you want to show  -->
+            <div class="form-group">
+                {{ form.instagram_id.label(class="form-control-label") }}
+                {% if form.instagram_id.errors %}
+                    {{ form.instagram_id(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.instagram_id.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.instagram_id(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <!--Insert here your items in div element for all the data you need  -->
+
+            <!--Repeat this code block for additional item you want to show  -->
+
+            <!--Insert here your items in div element for all the data you need  -->
+
+
+            <!--Repeat this code block for additional item you want to show  -->
+
+            <div class="form-group">
+                {{ form.snapchat_id.label(class="form-control-label") }}
+                {% if form.snapchat_id.errors %}
+                    {{ form.snapchat_id(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.snapchat_id.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.snapchat_id(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+
+
+
+
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+{% endblock content %}

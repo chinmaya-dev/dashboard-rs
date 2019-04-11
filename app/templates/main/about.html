@@ -1,0 +1,178 @@
+{% extends "layout.html" %}
+<head>
+    {% block head %}
+    <meta property="og:image" content="{{ url_for('static', filename='images/wall.png') }}">
+    <meta name="twitter:card" content="{{ url_for('static', filename='images/wall.png') }}">
+
+    {{ super() }}
+    {% endblock head %}
+</head>
+{% block content %}
+<div class="section-empty">
+    <div class="container content">
+        <div class="row vertical-row">
+            <div class="col-md-7 col-sm-6">
+                <div class="title-base text-left">
+                    <hr />
+                    <h2>About us </h2>
+                    <p>Quantamix Solutions embeds cutting-edge analytics solutions and platform services into your businesses using
+                    optimization tools, analytics dashboards, and business intelligence.</p>
+                </div>
+            </div>
+            <div class="col-md-5 col-sm-6">
+                <img src="{{ url_for('static', filename='images/bg-img-4.jpg') }}" alt="" />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section-empty">
+    <div class="container content">
+        <div class="row">
+            <!-- <div class="col-md-3 col-sm-6 boxed-inverse shadow-1">
+                <h4 class="text-m">Stocks markets</h4>
+                <div class="counter-box-simple text-color text-bold"><span class="counter text-l" data-to="7000">7000</span><span class="text-s"> %</span></div>
+                <hr class="space xs" />
+                <p>Stocks from middle 2010.</p>
+            </div>
+            <div class="col-md-3 col-sm-6 boxed-inverse shadow-1">
+                <h4 class="text-m">Growing scale</h4>
+                <div class="counter-box-simple text-color text-bold"><span class="counter text-l" data-to="300">300</span><span class="text-s"> %</span></div>
+                <hr class="space xs" />
+                <p>Growing of our daily business.</p>
+            </div>
+            <div class="col-md-3 col-sm-6 boxed-inverse shadow-1">
+                <h4 class="text-m">Employees</h4>
+                <div class="counter-box-simple text-color text-bold"><span class="counter text-l" data-to="900">900</span><span class="text-s"></span></div>
+                <hr class="space xs" />
+                <p>Bumber of employees.</p>
+            </div>
+            <div class="col-md-3 col-sm-6 boxed-inverse shadow-1">
+                <h4 class="text-m">Projects</h4>
+                <div class="counter-box-simple text-color text-bold"><span class="counter text-l" data-to="2500">2500</span><span class="text-s"></span></div>
+                <hr class="space xs" />
+                <p>Number of projects.</p>
+            </div> -->
+
+            </div>
+            <hr class="space m" />
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="advs-box advs-box-top-icon boxed white" data-anima="rotate-20" data-trigger="hover">
+                        <i class="fa fa-rocket icon circle anima"></i>
+                        <h3>Vision & Mission</h3>
+                        <p>
+                        We build cutting-edge web applications and digital ecosystems powered by advanced analytics, artificial intelligence,
+                        cloud computing, blockchain, and machine learning.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="advs-box advs-box-top-icon boxed white" data-anima="rotate-20" data-trigger="hover">
+                        <i class="fa fa-street-view f icon circle anima"></i>
+                        <h3>Community</h3>
+                        <p>
+                           We empower our Community to taste success and we thrive for it to help our stakeholders and community to have seamless customer experience and accelerate towards their business goals.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="advs-box advs-box-top-icon boxed white" data-anima="rotate-20" data-trigger="hover">
+                        <i class="fa fa-code-fork icon circle anima"></i>
+                        <h3>Team</h3>
+                        <p>
+                           We are young entrepreneurs with fire in our hearts to achieve the unthinkable. We have the right balance of young and very experienced professionals who thrive to achieve your dreams.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <hr class="space m" />
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover">
+                        <i class="fa fa-sun-o icon circle anima"></i>
+                        <h3>Life</h3>
+                        <p>
+                        We embrace ideas and challenges which ignite sharp minds to innovate, think-out-of-box, creative and design solutions
+                        that add business value and empower our community for achieving life dreams together.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover">
+                        <i class="fa fa-map-signs k icon circle anima"></i>
+                        <h3>Diversity</h3>
+                        <p>
+                            We strive to provide an excellent customer experience and create a flexible ecosystem to connect and engage in our
+                            online workspace where you can get in touch with our team & get help.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="advs-box advs-box-top-icon boxed-inverse" data-anima="rotate-20" data-trigger="hover">
+                        <i class="fa fa-globe icon circle anima"></i>
+                        <h3>Culture</h3>
+                        <p>
+                            We provide an environment that creates opportunities for people to grow, learn, and think innovative through our unique
+                            work culture where everyone can show up their creativity.
+                        </p>
+                    </div>
+                </div>
+        </div>
+        <hr class="space" />
+        <div class="row vertical-row">
+            <div class="col-md-3">
+                <div class="progress-circle" data-color="#5584ff" data-progress="80" data-thickness="5" data-options="lineCap:square">
+                    <div class="inner-circle">
+                        <div class="inner-center">
+                             Maximize your success against key business goals 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="progress-circle" data-color="#5584ff" data-progress="20" data-thickness="5" data-options="lineCap:round">
+                    <div class="inner-circle">
+                        <div class="inner-center">
+                            Minimize execution time against Key KPIs & metrics
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12 text-center-sm">
+                <h2>We ideate and execute</h2>
+                <p>
+                    Ideas are abundant, cheap and everyone boasts of them but EXECUTION OF IDEA needs grit, determination, die-hard
+                    attitude, commitment, and hard work. We at Quantamix Solution enable our team and partners to generate business value by
+                    carefully crafting the Execution Strategy, Plan and “Production-ready” applications.
+
+                </p>
+            </div>
+        </div>
+        <hr class="space m" />
+    </div>
+</div>
+<div class="section-bg-image" style="background-image:url(static/images/bg-23.jpg)">
+    <div class="container content">
+        <div class="row">
+            <div class="col-md-6 col-center text-center boxed-inverse shadow-1">
+                <h4>Join us</h4>
+                <p>Collaborate, build and connect with one of our solutions. Engage, embed and use one of our platform services.
+</p>
+                <a href="{{ url_for('main.contact') }}" class="circle-button btn btn-sm">Connect</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section-empty">
+
+</div>
+<link rel="stylesheet"  href="{{ url_for('static', filename='HTWF/scripts/font-awesome/css/font-awesome.css') }}">
+<script async src="{{ url_for('static', filename='HTWF/scripts/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/imagesloaded.min.js') }}" ></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/parallax.min.js') }}" ></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/jquery.tab-accordion.js') }}" ></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/smooth.scroll.min.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/flexslider/jquery.flexslider-min.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/jquery.progress-counter.js') }}"></script>
+{% endblock content %}

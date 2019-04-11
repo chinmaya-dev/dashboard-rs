@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+
+
+
+            <!--Repeat this code block for additional item you want to show  -->
+            <div class="form-group">
+                {{ form.event_name.label(class="form-control-label") }}
+                {% if form.event_name.errors %}
+                    {{ form.event_name(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.event_name.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.event_name(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <!--Insert here your items in div element for all the data you need  -->
+
+            <!--Repeat this code block for additional item you want to show  -->
+            <div class="form-group">
+                {{ form.event_description.label(class="form-control-label") }}
+                {% if form.event_description.errors %}
+                    {{ form.event_description(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.event_description.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.event_description(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+            <!--Insert here your items in div element for all the data you need  -->
+
+            <!--Repeat this code block for additional item you want to show  -->
+            <div class="form-group">
+                {{ form.event_location.label(class="form-control-label") }}
+                {% if form.event_location.errors %}
+                    {{ form.event_location(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.event_location.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.event_location(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.event_start_date.label(class="form-control-label") }}
+                {% if form.event_start_date.errors %}
+                    {{ form.event_start_date(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.event_start_date.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.event_start_date(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+            <div class="form-group">
+                {{ form.event_end_date.label(class="form-control-label") }}
+                {% if form.event_end_date.errors %}
+                    {{ form.event_end_date(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.event_end_date.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.event_end_date(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+
+             <div class="form-check">
+                    {{ form.event_status(class="form-check-input") }}
+                    {{ form.event_status.label(class="form-check-label") }}
+                </div>
+
+
+
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+{% endblock content %}

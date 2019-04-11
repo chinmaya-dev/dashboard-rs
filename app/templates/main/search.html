@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+{% block content %}
+
+    <h1>{{ ('Search Results') }}</h1>
+    {% for post in posts %}
+    <article class="media content-section">
+     <div class="media-body">
+       <div class="article-metadata">
+
+   <article class="media comment-content">
+
+    <img  class="rounded-circle article-img"  src="{{ url_for('static', filename='profile_pics/' + post.Protagonist.image_file) }}">
+      {% if post.category=='Sports' %}
+       <h1><i style="margin-left: 5em; margin-top: 0.2em; position: absolute; " class="fas fa-basketball-ball"></i></h1>
+       {% endif %}
+        {% if post.category=='Design' %}
+       <h1><i style="margin-left: 5em; margin-top: 0.2em; position: absolute; " class="fas fa-palette"></i></h1>
+       {% endif %}
+        {% if post.category=='Travel' %}
+       <h1><i style="margin-left: 5em; margin-top: 0.2em; position: absolute; " class="fas fa-umbrella-beach"></i></h1>
+       {% endif %}
+       {% if post.category=='Peoples Corner' %}
+       <h1><i style="margin-left: 5em; margin-top: 0.2em; position: absolute; " class="fas fa-person-booth"></i></h1>
+       {% endif %}
+        {% if post.category=='Music' %}
+       <h1><i style="margin-left: 5em; margin-top: 0.2em; position: absolute; " class="fas fa-podcast"></i></h1>
+       {% endif %}
+        {% if post.category=='Others' %}
+       <h1><i style="margin-left: 5em; margin-top: 0.2em; position: absolute; " class="fas fa-project-diagram"></i></h1>
+       {% endif %}
+     {% if current_user.is_authenticated %}
+         <h2 style="position: absolute; margin-left: 2.2em;"><a class="text-primary" href="{{ url_for('users.user', id=post.Protagonist.id) }}">{{ post.Protagonist.username }}</a></h2>
+         {% else %}
+         <h2  style="position: absolute; margin-left: 2.2em;">{{ post.Protagonist.username }}</h2>
+         {% endif %}
+
+         <small style="margin-top: 3.2em; position: relative; " class="text-muted"> {{ moment(post.date_posted).fromNow() }}</small>
+
+         <button class="btn btn-link" style="margin-top: 2em;" ><a href="http://maps.google.com/?q={{post.city }}"><i style="color: black;" class="fas fa-map-marker-alt"></i>&#xA0;{{post.city }}</a></button>
+          </article>
+       <div class="article-content">
+
+         <h4><a class="article-title" href="{{ url_for('posts.postn', post_id=post.id) }}">{{post.story_line }}</a></h4>
+       </div>
+
+       <div id="story" class="article-content">
+       <p id="content" class="story"  class="text-secondary"> <br> <br> {{post.story_text }}</p>
+       <a href="{{ url_for('posts.postn', post_id=post.id) }}"><b>Read more</b></a>
+       </div>
+       </div>
+
+
+ </div>
+</article>
+
+    {% endfor %}
+    <nav aria-label="...">
+        <ul class="pager">
+            <li class="previous{% if not prev_url %} disabled{% endif %}">
+                <a href="{{ prev_url or '#' }}">
+                    <span aria-hidden="true">&larr;</span> {{ ('Previous results') }}
+                </a>
+            </li>
+            <li class="next{% if not next_url %} disabled{% endif %}">
+                <a href="{{ next_url or '#' }}">
+                    {{ ('Next results') }} <span aria-hidden="true">&rarr;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+{% endblock content %}

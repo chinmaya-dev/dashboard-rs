@@ -1,0 +1,12 @@
+
+
+
+
+Deploying an Upgrade
+When a Heroku application needs to be upgraded the same process needs to be repeated. After all the changes have been committed to the Git repository, the following commands perform an upgrade:
+
+$ heroku maintenance:on
+$ git push heroku master
+$ heroku run flask deploy
+$ heroku restart
+$ heroku maintenance:off

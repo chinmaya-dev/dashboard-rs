@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+<head>
+    {% block head %}
+    <meta property="og:image" content="{{ url_for('static', filename='images/wall.png') }}">
+    <meta name="twitter:card" content="{{ url_for('static', filename='images/wall.png') }}">
+
+    {{ super() }}
+    {% endblock head %}
+</head>
+{% block content %}
+<script src="{{ url_for('static', filename='HTWF/scripts/parallax.min.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='HTWF/scripts/script.js') }}"></script>
+
+<div class="section-empty">
+  
+</div>
+<div class="section-empty section-item">
+  <div class="container content">
+      <div class="maso-list">
+          <div class="navbar navbar-inner">
+              <div class="navbar-toggle"><i class="fa fa-bars"></i><span>Menu</span><i class="fa fa-angle-down"></i></div>
+              <div class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav over ms-minimal inner maso-filters">
+                      <li class="current-active active"><a data-filter="maso-item">All</a></li>
+                      <li><a data-filter="Analytics">Analytics</a></li>
+                      <li><a data-filter="Web-Devlopment">Web Devlopment</a></li>
+                      <li><a data-filter="Cloud">Cloud</a></li>
+                      <li><a data-filter="Automation">Automation</a></li>
+                      <li><a data-filter="Mobile-Applications" href="#">Mobile Applications</a></li>
+                      <li><a data-filter="Data-Visualization" href="#">Data Visualization</a></li>
+                      <li><a data-filter="Process-Optimization" href="#">Process Optimization</a></li>
+                      <li><a data-filter="Security" href="#">Security</a></li>
+                      <li><a data-filter="Audit" href="#">Audit</a></li>
+                       <li><a data-filter="Pharma" href="#">Pharma</a></li>
+                      <li><a data-filter="Agriculture" href="#">Agriculture</a></li>
+                      <li><a data-filter="Blockchain" href="#">Blockchain</a></li>
+                      <li><a data-filter="IOT" href="#">Internt of things</a></li>
+                      <li><a class="maso-order" data-sort="asc"><i class="fa fa-arrow-down"></i></a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="maso-box row" data-options="anima:fade-in">
+            {% for post in posts.items %}
+              <div data-sort="1" class="maso-item col-md-4 col-sm-6 {{ post.category }}">
+                  <div class="advs-box advs-box-multiple boxed-inverse" data-anima="scale-up" data-trigger="hover">
+                      <a href="{{ url_for('posts.postn', post_id=post.id) }}" class="img-box"><img class="anima" src="{{ url_for('static', filename='post_pics/' + post.image_file) }}" alt="" /></a>
+                      <div class="advs-box-content">
+                          <h5 style="color:black;"><b>{{ post.title }}</b></h5>
+                          <p>
+                            {{ post.summary }}
+                          </p>
+                          <a href="{{ url_for('posts.postn', post_id=post.id) }}" class="btn-text" href="#">Read more </a>
+                      </div>
+                  </div>
+              </div>
+            {% endfor %}
+              <div class="clear"></div>
+          </div>
+      </div>
+  </div>
+</div>
+<i class="scroll-top scroll-top-mobile show fa fa-sort-asc"></i>
+<script async src="{{url_for('static',filename = 'HTWF/scripts/bootstrap/js/bootstrap.min.js')}}"></script>
+<script  src="{{url_for('static',filename = 'HTWF/scripts/imagesloaded.min.js')}}"></script>
+<script  src="{{url_for('static',filename = 'HTWF/scripts/isotope.min.js')}}"></script>
+<script  src="{{url_for('static',filename = 'HTWF/scripts/jquery.twbsPagination.min.js')}}"></script>
+<script  src="{{url_for('static',filename = 'HTWF/scripts/parallax.min.js')}}"></script>
+<script  src="{{url_for('static',filename = 'HTWF/scripts/jquery.tab-accordion.js')}}"></script>
+<script  src="{{url_for('static',filename = 'HTWF/scripts/smooth.scroll.min.js')}}"></script>
+
+
+{% endblock content %}

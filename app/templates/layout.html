@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {% block head %}
+  <meta property="og:image" content="{{ url_for('static', filename='images/wall.png') }}">
+  <meta name="twitter:card" content="{{ url_for('static', filename='images/wall.png') }}">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137036249-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-137036249-1');
+  </script>
+
+  <link rel="icon" href="{{ url_for('static', filename='images/navbar-ico.png') }}">
+  <!-- Required meta tags -->
+  <meta property="fb:app_id" content="468579063493515" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">   
+  <meta name="keywords" content="solutions, quantamix, content, platform, agile, machine learning, quantamix solutions, social media, platform offers, agile way">
+  <meta name="description" content="embeds cutting-edge analytics solutions and platform services into your businesses using optimization tools, analytics dashboards, and business intelligence">
+  <meta content="Quantamix solutions | Solution and platform based services">
+  <script src="{{ url_for('static', filename='HTWF/scripts/jquery.min.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='HTWF/scripts/bootstrap/css/bootstrap.css') }}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="{{ url_for('static', filename='HTWF/scripts/script.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='HTWF/style.css') }}">
+  <meta name="google-site-verification" content="ziNIStfYkDZMRpyo1E3ofUwdqx0V7GiyNNJa26Y6uM0" />
+  <script src='../HTWF/scripts/google.maps.min.js'></script>
+  <script src='https://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyBg0YrFVpK7hCgO9auS9nso9GLfMEDBmE8'></script>
+  <link href="{{ url_for('static', filename='HTWF/css/flags.css') }}" rel=stylesheet type="text/css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='HTWF/css/content-box.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='HTWF/css/image-box.css') }}" >
+  <link rel="stylesheet" href="{{ url_for('static', filename='HTWF/css/animations.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='HTWF/scripts/social.stream.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='HTWF/scripts/php/contact-form.css') }}">
+  <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='HTWF/css/components.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='HTWF/scripts/flexslider/flexslider.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='HTWF/scripts/magnific-popup.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='HTWF/css/skin.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='images/navbar-ico.png') }}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  
+<script>
+  window.fbAsyncInit = function () {
+    FB.init({
+      appId: '468579063493515',
+      autoLogAppEvents: true,
+      xfbml: true,
+      version: 'v2.10'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) { return; }
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+ {{ moment.include_moment() }}
+  {% block scripts %}
+
+  {% endblock %}
+
+  {% if title %}
+  <title>Quantamix Solutions | {{ title }}</title>
+  {% else %}
+  <title>Quantamix Solutions</title>
+  {% endif %}
+  {% endblock %}
+  
+</head>
+<!-- <script src="js/bootstrap.min.js"></script> -->
+
+<body>
+    <div id="preloader"></div>
+    <header class="fixed-top scroll-change" data-menu-anima="fade-bottom">
+        <div class="navbar navbar-default mega-menu-fullwidth navbar-fixed-top" role="navigation">
+            <div class="navbar navbar-main">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <a class="navbar-brand" href="{{ url_for('main.home') }}">
+                            <img class="logo-default" src="{{ url_for('static', filename='images/logo-black.png') }}"  alt="logo" />
+                            <img class="logo-retina" src="{{ url_for('static', filename='images/logo-retina-black.png') }}"  alt="logo" />
+                            
+                        </a>
+                       
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <div class="nav navbar-nav navbar-right">
+                            <ul class="nav navbar-nav">
+                                {% if current_user.is_authenticated %}
+                                <li class="active">
+                                  <a href="{{ url_for('main.home') }}">Home</span></a>
+                                
+                                </li>
+                              
+                                <li>
+                                  <a href="{{ url_for('main.solutions') }}" >Solutions</span></a>
+                                
+                                </li>
+                                <li>
+                                  <a  href="{{ url_for('main.platform') }}">Platform</a>
+                                
+                                </li>
+                                <li>
+                                  <a href="{{ url_for('blog.blog_view') }}" >Blog</span></a>
+                                
+                                </li>
+                                <li>
+                                  <a href="{{ url_for('main.about') }}" >About us</span></a>
+                                
+                                </li>
+                                <li>
+                                  <a href="{{ url_for('main.contact') }}">Contact
+                                    us</span></a>
+                                
+                                </li>
+                               
+                                
+                                
+                                
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="padding-top: 15px;"><img class="rounded-circle img-fluid" style="height: 2em;"
+                                    src="{{ url_for('static', filename='profile_pics/' + current_user.image_file) }}"> <span class="caret"></span></a>
+                                  <ul class="dropdown-menu multi-level">
+                                    
+                                    <li><a href="{{ url_for('blog.new_blog', id=current_user.id) }}">create blog</a></li>
+                                    <li><a href="{{ url_for('posts.new_post',id=current_user.id) }}">create solution</a></li>
+                                    <li><a href="{{ url_for('platform.new_platform',id=current_user.id) }}">create platform post</a></li>
+                                    <li><a href="{{ url_for('auth.logout') }}"><i class="fas fa-power-off"></i>&#xA0;Logout</a></li>
+                                    
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                </li>
+                                {% else %}
+                                <li>
+                                 <a role="button" href="{{ url_for('main.home') }}">
+                                   Home
+                                 </a>
+                               </li>
+                               <li>
+                                <a href="{{ url_for('main.solutions') }}">
+                                  Solutions
+                                </a>
+                              </li>
+                              <li>
+                                <a href="{{ url_for('main.platform') }}">
+                                  Platform
+                                </a>
+                              </li>
+                              <li>
+                                <a href="{{ url_for('blog.blog_view') }}">
+                                  Blog
+                                </a>
+                              </li>
+                               <li>
+                                 <a href="{{ url_for('main.about') }}">
+                                   About us
+                                 </a>
+                               </li>
+                                <li>
+                                 <a href="{{ url_for('main.contact') }}">
+                                   Contact us
+                                 </a>
+                               </li>                            
+                               
+                               
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+  
+
+
+
+  <main role="main">
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }}">
+      {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    {% block content %}
+
+    {% endblock %}
+
+  </main>
+  <i class="scroll-top scroll-top-mobile show fa fa-sort-asc"></i>
+  <footer id="footer" class="footer-base">
+      <div class="content">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-3 footer-center text-left">
+                      <a href="https://discord.gg/QAqJVQK" width="120" alt="" data-toggle="tooltip" title="Discord" data-placement="bottom" ><i class="fab fa-discord  circle text-m"></i>&#xA0; </a>
+                       <a href="https://www.linkedin.com/company/35625889/" width="120" alt="" data-toggle="tooltip" title="LinkedIN" data-placement="bottom" ><i class="fab fa-linkedin  circle text-m"></i></a>
+                  </div>
+                  <div class="col-md-6 footer-left text-left">
+                      <p><a href="http://maps.google.com/?q=Schootsveld 13, 1421LM Uithoorn" >Quantamix Solutions BV<br>
+                      Schootsveld 13, 1421LM Uithoorn, Netherlands</a><br>KVK-nummer 73625183<br><a  href="http://maps.google.com/?q=Marunji, Hinjewadi, Pune 411057" >Quantamix Solutions Pvt Ltd
+                      <br>Pune 411057, India</a>
+                      </p> 
+                                          
+                      <div class="tag-row">
+                          <span style="font-size:12px !important;">contact@quantamixsolutions.com</span>
+                          <span style="font-size:12px !important;"><img src="{{ url_for('static', filename='HTWF/css/blank.gif') }}" class="flag flag-nl" alt="Czech Republic" />+31684995255,&#xA0;&#xA0;+917014969260</span>
+                          
+                      </div>
+                  </div>
+                  <div class="col-md-3 footer-left text-right text-left-sm">
+                      <div class="btn-group social-group btn-group-icons">
+                          <a target="_blank" href="#" data-social="share-facebook">
+                              <i class="fab fa-facebook text-xs circle"></i>
+                          </a>
+                          <a target="_blank" href="#" data-social="share-twitter">
+                              <i class="fab fa-twitter text-xs circle"></i>
+                          </a>
+                          <a target="_blank" href="#" data-social="share-google">
+                              <i class="fab fa-google-plus text-xs circle"></i>
+                          </a>
+                          <a target="_blank" href="#" data-social="share-linkedin">
+                              <i class="fab fa-linkedin text-xs circle"></i>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="row copy-row">
+              <div class="col-md-12 copy-text">
+                  © 2019 Quantamix Solutions - All Rights Reserved <span> <a href="{{ url_for('main.tandc') }}">Terms & Conditions</a>&#xA0;|&#xA0;<a href="{{ url_for('main.priv') }}">Privacy Policy</a></span>
+              </div>
+          </div>
+      </div>
+      
+  </footer>
+
+  <script>
+    $(document).ready(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  </script>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script> -->
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+<head>
+    {% block head %}
+    <meta property="og:image" content="{{ url_for('static', filename='images/wall.png') }}">
+    <meta name="twitter:card" content="{{ url_for('static', filename='images/wall.png') }}">
+
+    {{ super() }}
+    {% endblock head %}
+</head>
+{% block content %}
+
+
+<div class="section-bg-color">        
+  <div class="container content">
+      <div class="row">
+          <div class="col-md-9 col-sm-12">
+              <div class="grid-list grid-layout grid-15">
+                  <div class="grid-box row">
+                      {% for platform in platform.items %}
+                      <div class="grid-item col-md-6">
+                          <div class="advs-box advs-box-top-icon-img niche-box-post boxed-inverse" data-anima="scale-rotate" data-trigger="hover">
+                              <div class="block-infos">
+                                  <div class="block-data">
+                                      <p class="bd-day">{{ moment(platform.timestamp).format('DD') }}</p>
+                                      <p class="bd-month">{{ moment(platform.timestamp).format('MMM YYYY') }}</p>
+                                  </div>
+                                  <a class="block-comment" href="#">2 <i class="fa fa-comment-o"></i></a>
+                              </div>
+                              <a class="img-box" href="{{ url_for('platform.platformn', platform_id=platform.id) }}"><img class="anima" src="{{ url_for('static', filename='platform_pics/' + platform.image_file) }}"  style="max-height:180px;height: auto;" alt="" /></a>
+                              <div class="advs-box-content">
+                                  <h2 class="text-m"><a href="{{ url_for('platform.platformn', platform_id=platform.id) }}">{{ platform.title }}</a></h2>
+                                  <div class="tag-row">
+                                      <span><i class="fa fa-bookmark"></i> <a href="#">{{ platform.category }}</a></span>
+                                      <span><i class="fa fa-pencil"></i><a href="#">{{ platform.Protagonist.username }}</a></span>
+                                      
+                                  </div>
+                                  <p class="niche-box-content" style=" text-overflow: ellipsis;display: -webkit-box;line-height: 16px;max-height: 45px;-webkit-line-clamp: 3;-webkit-box-orient: vertical;">
+                                      {{ platform.summary }}
+                                  </p>
+                              </div>
+                          </div>
+                      </div>
+                      {% endfor %}
+                  </div>
+                  <div class="list-nav text-left">
+                      <ul class="pagination pagination-sm pagination-grid" data-page-items="8" data-pagination-anima="fade-bottom" data-options="scrollTop:true"></ul>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-3 col-sm-12 widget">
+              
+              <div class="list-group list-blog">
+                  <p class="list-group-item active">Latest Blogs</p>
+                   {% for blog in blogs.items %}
+                  <div class="list-group-item">
+                      <div class="tag-row icon-row"><span><i class="fa fa-calendar"></i>{{ moment(blog.timestamp).format('DD MMM YYYY') }}</span></div>
+                      <a href="#">
+                          <h5><a href="{{ url_for('blog.blogn', blog_id=blog.id) }}">{{blog.title }}</a></h5>
+                      </a>
+                      <p>
+                          {{blog.summary }}
+                      </p>
+                  </div>
+                   {% endfor %}
+              </div>
+
+      </div>
+  </div>
+</div>
+<i class="scroll-top scroll-top-mobile show fa fa-sort-asc"></i>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='HTWF/scripts/font-awesome/css/font-awesome.css') }}">
+  <script async src="{{ url_for('static', filename='HTWF/scripts/bootstrap/js/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='HTWF/scripts/imagesloaded.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='HTWF/scripts/jquery.twbsPagination.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='HTWF/scripts/jquery.magnific-popup.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='HTWF/scripts/smooth.scroll.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='HTWF/scripts/script.js') }}"></script>
+
+{% endblock content %}

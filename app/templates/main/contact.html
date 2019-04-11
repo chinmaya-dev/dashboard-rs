@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+<head>
+  {% block head %}
+  <meta property="og:image" content="{{ url_for('static', filename='images/wall.png') }}">
+  <meta name="twitter:card" content="{{ url_for('static', filename='images/wall.png') }}">
+
+  {{ super() }}
+  {% endblock head %}
+</head>
+{% block content %}
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='HTWF/css/skin.css') }}"> -->
+<script src="{{ url_for('static', filename='HTWF/scripts/jquery.min.js') }}"></script>
+<script src='https://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyDAzfIBGXGcVrPLYvXVOWBLCKEh_4qUu4s'></script>
+
+<div class="section-two-blocks two-blocks-container blocks-right shadow-1 margin-top-90 margin-bottom-90 mb-2" style="margin-bottom:5%;">
+  <div class="row">
+      <div class="col-md-6">
+          <div class="google-map" data-coords="52.2406073,4.8134794" data-skin="" data-zoom="10" data-marker-pos-top="20" data-marker="http://templates.framework-y.com/signflow/images/marker-map.png"></div>
+      </div>
+      <div class="col-md-6">
+          <div class="content">
+              <h4>Send a message</h4>
+
+              <p>
+              For Queries and Request please leave your message one of our team members will contact you shortly.
+              </p>
+
+              <hr class="space m" />
+            <form method="POST" action="">
+                {{ form.hidden_tag() }}
+                <fieldset class="form-group">
+                  <div class="row">
+                    
+                      <div class="form-group col-md-6">
+                        
+                                
+                                    {{ form.name.label(class="form-control-label") }}
+                                    {% if form.name.errors %}
+                                    {{ form.name(class="form-control is-invalid") }}
+                                    <div class="invalid-feedback">
+                                        {% for error in form.name.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                    {{ form.name(class="form-control ") }}
+                                    {% endif %}
+                                
+                      </div>
+                      <div class="form-group col-md-6">
+                        {{ form.email.label(class="form-control-label") }}
+                        {% if form.email.errors %}
+                        {{ form.email(class="form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.email(class="form-control ") }}
+                        {% endif %}
+                      </div>
+                  </div>
+                  <hr class="space s" />
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="form-group" >
+                        {{ form.msg.label(class="form-control-label") }}
+                        {% if form.msg.errors %}
+                        {{ form.msg(class="form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.msg.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.msg(class="form-control ") }}
+                        {% endif %}
+                        </div>
+                        </fieldset>
+                          <hr class="space s" />
+                        <div class="form-group">
+                            {{ form.submit(class="circle-button btn-sm btn") }}
+                        </div>
+                      </div>
+                  </div>
+              </form>
+                
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+<script async src="{{url_for('static',filename = 'HTWF/scripts/bootstrap/js/bootstrap.min.js')}}"></script>
+<script  src="{{url_for('static',filename = 'HTWF/scripts/imagesloaded.min.js')}}"></script>
+<script  src="{{url_for('static',filename = 'HTWF/scripts/google.maps.min.js')}}"></script>
+<script  src="{{url_for('static',filename = 'HTWF/scripts/php/contact-form.js')}}"></script>
+<!-- <script  src="{{url_for('static',filename = 'HTWF/scripts/parallax.min.js')}}"></script> -->
+<script src="../HTWF/scripts/imagesloaded.min.js"></script>
+<script src="../HTWF/scripts/google.maps.min.js"></script>
+<script src="../HTWF/scripts/jquery.tab-accordion.js"></script>
+<script src="../HTWF/scripts/smooth.scroll.min.js"></script>
+<script  src="{{url_for('static',filename = 'HTWF/scripts/jquery.tab-accordion.js')}}"></script>
+<script  src="{{url_for('static',filename = 'HTWF/scripts/smooth.scroll.min.js')}}"></script>
+<script src='https://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyDAzfIBGXGcVrPLYvXVOWBLCKEh_4qUu4s'></script>
+{% endblock content %}
